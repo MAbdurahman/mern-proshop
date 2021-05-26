@@ -1,9 +1,36 @@
-main {
-   min-height:80vh;
+*,
+*::after,
+*::before {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+   user-select: none;
 }
+*::-moz-focus-inner {
+   border: 0;
+}
+
+*:focus {
+   outline: none;
+}
+
+main {
+   min-height: 80vh;
+}
+
 .product_price {
    padding: .33em 0;
 }
+
 .rating span {
    margin: 0.1em;
+}
+.dark-outline {
+   border: 2px solid black;
+}
+.dark-outline:hover {
+   background-color: black;
+   color: white;
+   border: 2px solid black;
 }
