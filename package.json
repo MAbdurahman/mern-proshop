@@ -1,0 +1,32 @@
+{
+	"name": "mern-proshop",
+	"version": "1.0.0",
+	"description": "MERN stack ecommerce website",
+	"main": "server.js",
+	"scripts": {
+    "start": "node backend/server.js",
+    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MAbdurahman/mern-proshop.git"
+	},
+	"keywords": [
+		"MongoDB",
+		"ExpressJS",
+		"ReactJS",
+		"NodeJS"
+	],
+	"author": "Mahdi Abdurrahman",
+	"license": "MIT",
+	"nodemonConfig": {
+		"delay": "2000"
+	},
+	"bugs": {
+		"url": "https://github.com/MAbdurahman/mern-proshop/issues"
+	},
+	"homepage": "https://github.com/MAbdurahman/mern-proshop#readme",
+	"dependencies": {
+		"express": "^4.17.1"
+	}
+}
