@@ -1,10 +1,12 @@
 //**************** imports ****************//
-const express = require('express');
-const products = require('../data/products')
+import express from 'express';
+import dotenv from 'dotenv';
+import products from '../data/products.js';
 
 
 
-
+//**************** configuration setup ****************//
+dotenv.config();
 
 //**************** variables ****************//
 const app = express();
