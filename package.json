@@ -9,7 +9,7 @@
 		"server": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
 		"client": "npm start --prefix frontend",
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
-		"data:import": "node backend/seeder.js"
+		"seeder": "node backend/seeder.js"
 	},
 	"repository": {
 		"type": "git",
