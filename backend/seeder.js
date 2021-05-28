@@ -1,3 +1,4 @@
+//**************** imports ****************//
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import colors from 'colors';
@@ -8,16 +9,19 @@ import Product from './models/productModel.js';
 import Order from './models/orderModel.js';
 import connectDatabase from './config/databaseConfig.js';
 
+//**************** dotenv configuration ****************//
 dotenv.config();
+//**************** connect to database with mongoose ****************//
 await connectDatabase();
 
+//**************** seed products and users to database ****************//
 const importData = async () => {
 	try {
 		await Order.deleteMany();
 		await Product.deleteMany();
 		await User.deleteMany();
 
-      console.log('Data Deleted!'.red);
+		console.log('Data Deleted!'.red);
 
 		const createdUsers = await User.insertMany(users);
 
@@ -31,14 +35,13 @@ const importData = async () => {
 
 		console.log('Data Imported!'.green);
 		process.exit();
-
 	} catch (error) {
 		console.error(`${error}`.red);
 		process.exit(1);
-
 	}
 };
 
+//**************** delete all data from database ****************//
 const destroyData = async () => {
 	try {
 		await Order.deleteMany();
@@ -47,11 +50,9 @@ const destroyData = async () => {
 
 		console.log('Data Destroyed!'.red.inverse);
 		process.exit();
-
 	} catch (error) {
 		console.error(`${error}`.red.inverse);
 		process.exit(1);
-
 	}
 };
 
