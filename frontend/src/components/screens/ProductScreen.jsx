@@ -19,7 +19,7 @@ import { listProductDetails } from '../../actions/productActions';
 
 export default function ProductScreen({ history, match }) {
 	//**************** variables ****************//
-	const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 	const dispatch = useDispatch();
 	const productDetails = useSelector(state => state.productDetails);
 	const { loading, error, product } = productDetails;
@@ -38,7 +38,7 @@ export default function ProductScreen({ history, match }) {
 	return (
 		<>
 			<Link className='btn btn-light dark-outline my-3' to='/'>
-				Back Home
+				Go Back
 			</Link>
 			{loading ? (
 				<Loader />
@@ -94,6 +94,7 @@ export default function ProductScreen({ history, match }) {
 											<Col>Quantity</Col>
 											<Col>
 												<Form.Control
+												
 													as='select'
 													value={quantity}
 													onChange={e =>
