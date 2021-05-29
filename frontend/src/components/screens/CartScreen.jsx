@@ -11,7 +11,7 @@ import {
 	Card,
 } from 'react-bootstrap';
 import Message from '../Message';
-import { addToCart } from '../../actions/cartActions';
+import { addToCart, removeFromCart } from '../../actions/cartActions';
 
 export default function CartScreen({ history, location, match }) {
 	//**************** variables ****************//
@@ -29,7 +29,9 @@ export default function CartScreen({ history, location, match }) {
 		}
 	}, [dispatch, productId, quantity]);
 
-	const removeFromCartHandler = id => {};
+	const removeFromCartHandler = id => {
+      dispatch(removeFromCart(id));
+   };
 
 	const checkoutHandler = () => {
 		history.push('/login?redirect=shipping');
