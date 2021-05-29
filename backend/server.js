@@ -19,7 +19,6 @@ connectDatabase();
 //**************** middleware****************//
 app.use(express.json());
 
-
 //**************** routes****************//
 app.get('/', (req, res) => {
 	res.send('API is at Home');
