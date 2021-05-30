@@ -43,8 +43,8 @@ export default function CartScreen({ history, location, match }) {
 				<h1>Shopping Cart</h1>
 				{cartItems.length === 0 ? (
 					<Message>
-						Your cart is empty 
-						<Link className='btn-msg' to='/'>
+						Your cart is empty &nbsp;
+						<Link to='/'>
 							&larr; Go Back
 						</Link>
 					</Message>
