@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Message';
 import Loader from '../Loader';
 import FormContainer from '../FormContainer';
-import { getUserDetails } from '../../actions/userActions';
+import { getUserDetails, updateUserProfile } from '../../actions/userActions';
 
 export default function ProfileScreen({ history, location }) {
 	//**************** variables ****************//
@@ -23,32 +23,31 @@ export default function ProfileScreen({ history, location }) {
 	const userLogin = useSelector(state => state.userLogin);
 	const { userInfo } = userLogin;
 
+	const userUpdateProfile = useSelector(state => state.userUpdateProfile);
+	const { success } = userUpdateProfile;
+
 	//**************** functions ****************//
 	useEffect(() => {
 		if (!userInfo) {
 			history.push('/login');
-
 		} else {
 			if (!user.name) {
 				// dispatch({ type: USER_UPDATE_PROFILE_RESET });
 				dispatch(getUserDetails('profile'));
 				// dispatch(listMyOrders());
-
 			} else {
 				setName(user.name);
 				setEmail(user.email);
-
 			}
-
 		}
-	}, [dispatch, history, userInfo]);
+	}, [dispatch, history, userInfo, user]);
 
 	const submitHandler = e => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
 			setMessage('Passwords Do Not Match!');
 		} else {
-			// dispatch(updateUserProfile({ id: user._id, name, email, password }));
+			dispatch(updateUserProfile({ id: user._id, name, email, password }));
 		}
 	};
 
@@ -57,8 +56,8 @@ export default function ProfileScreen({ history, location }) {
 			<Col md={3}>
 				<h2>User Profile</h2>
 				{message && <Message variant='danger'>{message}</Message>}
-				{/* {}
-				{success && <Message variant='success'>Profile Updated</Message>} */}
+				{}
+				{success && <Message variant='success'>Profile Updated</Message>}
 				{loading ? (
 					<Loader />
 				) : error ? (
@@ -105,7 +104,11 @@ export default function ProfileScreen({ history, location }) {
 							></Form.Control>
 						</Form.Group>
 
-						<Button className='btn-block dark-btn' type='submit' variant='primary'>
+						<Button
+							className='btn-block dark-btn'
+							type='submit'
+							variant='primary'
+						>
 							Update
 						</Button>
 					</Form>
