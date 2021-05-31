@@ -15,10 +15,6 @@
    outline: none;
 }
 
-main {
-   min-height: 80vh;
-}
-
 .product_price {
    padding: .33em 0;
 }
