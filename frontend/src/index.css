@@ -49,7 +49,12 @@ main {
    text-decoration: none;
    color: green;
 }
-
+.btn-form {
+   font-size: 1.2rem;
+}
+.grey-bg {
+   background-color: rgb(233, 231, 231);
+}
 
 
 main {

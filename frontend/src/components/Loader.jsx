@@ -10,6 +10,7 @@ export default function Loader() {
 				width: '100px',
 				height: '100px',
 				margin: 'auto',
+				marginTop: '1.2em',
 				display: 'block',
 			}}
 		>

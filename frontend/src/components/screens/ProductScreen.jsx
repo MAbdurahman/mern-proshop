@@ -29,7 +29,7 @@ export default function ProductScreen({ history, match }) {
 		if (!product._id || product._id !== match.params.id) {
 			dispatch(listProductDetails(match.params.id));
 		}
-	}, [dispatch, match]);
+	}, [dispatch, match, product._id]);
 
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?quantity=${quantity}`);
