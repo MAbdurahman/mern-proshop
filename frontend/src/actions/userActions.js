@@ -183,12 +183,15 @@ export const updateUserProfile = user => async (dispatch, getState) => {
 			type: USER_LOGIN_SUCCESS,
 			payload: data,
 		});
+
 		localStorage.setItem('userInfo', JSON.stringify(data));
+
 	} catch (error) {
 		const message =
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
+				
 		if (message === 'Not authorized, token failed') {
 			dispatch(logout());
 		}

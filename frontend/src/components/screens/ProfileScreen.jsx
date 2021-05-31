@@ -6,6 +6,7 @@ import Message from '../Message';
 import Loader from '../Loader';
 import FormContainer from '../FormContainer';
 import { getUserDetails, updateUserProfile } from '../../actions/userActions';
+import { USER_UPDATE_PROFILE_RESET } from './../../constants/userConstants';
 
 export default function ProfileScreen({ history, location }) {
 	//**************** variables ****************//
@@ -31,8 +32,8 @@ export default function ProfileScreen({ history, location }) {
 		if (!userInfo) {
 			history.push('/login');
 		} else {
-			if (!user.name) {
-				// dispatch({ type: USER_UPDATE_PROFILE_RESET });
+			if (!user || !user.name || success) {
+				dispatch({ type: USER_UPDATE_PROFILE_RESET });
 				dispatch(getUserDetails('profile'));
 				// dispatch(listMyOrders());
 			} else {
@@ -40,7 +41,7 @@ export default function ProfileScreen({ history, location }) {
 				setEmail(user.email);
 			}
 		}
-	}, [dispatch, history, userInfo, user]);
+	}, [dispatch, history, userInfo, user, success]);
 
 	const submitHandler = e => {
 		e.preventDefault();
@@ -54,7 +55,7 @@ export default function ProfileScreen({ history, location }) {
 	return (
 		<Row>
 			<Col md={3}>
-				<h2>User Profile</h2>
+				<h2 className='text-center'>User Profile</h2>
 				{message && <Message variant='danger'>{message}</Message>}
 				{}
 				{success && <Message variant='success'>Profile Updated</Message>}
