@@ -33,7 +33,7 @@ export default function CheckoutSteps({step1, step2, step3, step4}) {
 				</Link>
 			)}
 			{step3 ? (
-				<Link to='/login' className='float-right'>
+				<Link to='/payment' className='float-right'>
 					<div className='triangle2-active'></div>
 					<div className='step active-step'>Payment</div>
 					<div className='triangle2-active'></div>
