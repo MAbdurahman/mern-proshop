@@ -1,50 +1,64 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
+/* import { Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap'; */
 
 export default function CheckoutSteps({step1, step2, step3, step4}) {
 	return (
-		<Nav className='justify-content-center mb-4'>
-			<Nav.Item>
-				{step1 ? (
-					<LinkContainer to='/login'>
-						<Nav.Link>Sign In</Nav.Link>
-					</LinkContainer>
-				) : (
-					<Nav.Link disabled>Sign In</Nav.Link>
-				)}
-			</Nav.Item>
-
-			<Nav.Item>
-				{step2 ? (
-					<LinkContainer to='/shipping'>
-						<Nav.Link>Shipping</Nav.Link>
-					</LinkContainer>
-				) : (
-					<Nav.Link disabled>Shipping</Nav.Link>
-				)}
-			</Nav.Item>
-
-			<Nav.Item>
-				{step3 ? (
-					<LinkContainer to='/payment'>
-						<Nav.Link>Payment</Nav.Link>
-					</LinkContainer>
-				) : (
-					<Nav.Link disabled>Payment</Nav.Link>
-				)}
-			</Nav.Item>
-
-			<Nav.Item>
-				{step4 ? (
-					<LinkContainer to='/placeorder'>
-						<Nav.Link>Place Order</Nav.Link>
-					</LinkContainer>
-				) : (
-					<Nav.Link disabled>Place Order</Nav.Link>
-				)}
-			</Nav.Item>
-		</Nav>
+		<div className='d-flex justify-content-center mb-3 checkout-progress'>
+			{step1 ? (
+				<Link to='/login' className='float-right'>
+					<div className='triangle2-active'></div>
+					<div className='step active-step'>Sign In</div>
+					<div className='triangle2-active'></div>
+				</Link>
+			) : (
+				<Link to='#!' disabled>
+					<div className='triangle2-incomplete'></div>
+					<div className='step incomplete'>Sign In</div>
+					<div className='triangle2-incomplete'></div>
+				</Link>
+			)}
+			{step2 ? (
+				<Link to='/shipping' className='float-right'>
+					<div className='triangle2-active'></div>
+					<div className='step active-step'>Shipping</div>
+					<div className='triangle2-active'></div>
+				</Link>
+			) : (
+				<Link to='#!' disabled>
+					<div className='triangle2-incomplete'></div>
+					<div className='step incomplete'>Shipping</div>
+					<div className='triangle2-incomplete'></div>
+				</Link>
+			)}
+			{step3 ? (
+				<Link to='/login' className='float-right'>
+					<div className='triangle2-active'></div>
+					<div className='step active-step'>Payment</div>
+					<div className='triangle2-active'></div>
+				</Link>
+			) : (
+				<Link to='#!' disabled>
+					<div className='triangle2-incomplete'></div>
+					<div className='step incomplete'>Payment</div>
+					<div className='triangle2-incomplete'></div>
+				</Link>
+			)}
+			{step4 ? (
+				<Link to='/placeorder' className='float-right'>
+					<div className='triangle2-active'></div>
+					<div className='step active-step'>Place Order</div>
+					<div className='triangle2-active'></div>
+				</Link>
+			) : (
+				<Link to='#!' disabled>
+					<div className='triangle2-incomplete'></div>
+					<div className='step incomplete'>Place Order</div>
+					<div className='triangle2-incomplete'></div>
+				</Link>
+			)}
+		</div>
 	);
 
 }
