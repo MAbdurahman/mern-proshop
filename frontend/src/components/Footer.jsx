@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 export default function Footer() {
@@ -7,6 +8,7 @@ export default function Footer() {
 			<Container>
 				<Row>
 					<Col className='text-center py-3'>
+						<a className='footer-link' href='#!'>Terms and Conditions</a>
 						&copy;&nbsp;2021&nbsp;ProTech,Inc.
 					</Col>
 				</Row>

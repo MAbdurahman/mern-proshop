@@ -113,6 +113,15 @@ a.dropdown-logout-red:hover {
    background-color: rgb(155, 20, 20);
    font-weight: 600;
 }
+a.footer-link {
+   letter-spacing: 2px;
+   display: block;
+   text-decoration: none;
+}
+a.footer-link:hover {
+   color:#a1a1a1;
+   text-decoration: none;
+}
 
 
 /**************** CheckoutSteps CSS ****************/
