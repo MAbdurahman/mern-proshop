@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { PayPalButton } from 'react-paypal-button-v2';
 import { Link } from 'react-router-dom';
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './../Loader';
 import Message from './../Message';
-import { getOrderDetails } from './../../actions/orderActions';
+import { getOrderDetails, payOrder } from './../../actions/orderActions';
+
+import { ORDER_PAY_RESET } from './../../constants/orderConstants';
 
 export default function OrderScreen({ history, match }) {
 	//**************** variables ****************//
@@ -17,6 +20,9 @@ export default function OrderScreen({ history, match }) {
 
 	const orderDetails = useSelector(state => state.orderDetails);
 	const { order, loading, error } = orderDetails;
+
+	const orderPay = useSelector(state => state.orderPay);
+	const { loading: loadingPay, success: successPay } = orderPay;
 
 	//**************** functions ****************//
 	if (!loading) {
@@ -41,34 +47,36 @@ export default function OrderScreen({ history, match }) {
 		// 	history.push('/login');
 		// }
 
-		// const addPayPalScript = async () => {
-		// 	const { data: clientId } = await axios.get('/api/config/paypal');
-		// 	const script = document.createElement('script');
-		// 	script.type = 'text/javascript';
-		// 	script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
-		// 	script.async = true;
-		// 	script.onload = () => {
-		// 		setSdkReady(true);
-		// 	};
-		// 	document.body.appendChild(script);
-		// };
+		const addPayPalScript = async () => {
+			const { data: clientId } = await axios.get('/api/config/paypal');
+			const script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+			script.async = true;
+			script.onload = () => {
+				setSdkReady(true);
+			};
+			document.body.appendChild(script);
+		};
 
-		// if (!order || successPay || successDeliver || order._id !== orderId) {
-		// 	dispatch({ type: ORDER_PAY_RESET });
-		// 	dispatch({ type: ORDER_DELIVER_RESET });
-		// 	dispatch(getOrderDetails(orderId));
-		// } else if (!order.isPaid) {
-		// 	if (!window.paypal) {
-		// 		addPayPalScript();
-		// 	} else {
-		// 		setSdkReady(true);
-		// 	}
-		// }
-	}, [dispatch]);
+		if (!order || successPay || order._id !== orderId) {
+			dispatch({ type: ORDER_PAY_RESET });
+			// dispatch({ type: ORDER_DELIVER_RESET });
+			dispatch(getOrderDetails(orderId));
+		} else if (!order.isPaid) {
+			if (!window.paypal) {
+				addPayPalScript();
+
+			} else {
+				setSdkReady(true);
+
+			}
+		}
+	}, [dispatch, orderId, order, successPay]);
 
 	const successPaymentHandler = paymentResult => {
 		console.log(paymentResult);
-		// dispatch(payOrder(orderId, paymentResult));
+		dispatch(payOrder(orderId, paymentResult));
 	};
 
 	const deliverHandler = () => {
@@ -193,7 +201,7 @@ export default function OrderScreen({ history, match }) {
 							</ListGroup.Item>
 							{!order.isPaid && (
 								<ListGroup.Item>
-									{/* {loadingPay && <Loader />}
+									{loadingPay && <Loader />}
 									{!sdkReady ? (
 										<Loader />
 									) : (
@@ -201,7 +209,7 @@ export default function OrderScreen({ history, match }) {
 											amount={order.totalPrice}
 											onSuccess={successPaymentHandler}
 										/>
-									)} */}
+									)}
 								</ListGroup.Item>
 							)}
 							{/* 							{loadingDeliver && <Loader />}
