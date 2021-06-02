@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col, Table } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../Message';
 import Loader from '../Loader';
 import FormContainer from '../FormContainer';
 import { getUserDetails, updateUserProfile } from '../../actions/userActions';
 import { USER_UPDATE_PROFILE_RESET } from './../../constants/userConstants';
+import { listMyOrders } from './../../actions/orderActions';
 
 export default function ProfileScreen({ history, location }) {
 	//**************** variables ****************//
@@ -27,6 +29,16 @@ export default function ProfileScreen({ history, location }) {
 	const userUpdateProfile = useSelector(state => state.userUpdateProfile);
 	const { success } = userUpdateProfile;
 
+	const orderListMy = useSelector(state => state.orderListMy);
+		const {
+			loading: loadingOrders,
+			error: errorOrders,
+			orders,
+		} = orderListMy;
+
+		const iconColor = {
+			color: '#9B1414'
+		}
 	//**************** functions ****************//
 	useEffect(() => {
 		if (!userInfo) {
@@ -35,7 +47,8 @@ export default function ProfileScreen({ history, location }) {
 			if (!user || !user.name || success) {
 				dispatch({ type: USER_UPDATE_PROFILE_RESET });
 				dispatch(getUserDetails('profile'));
-				// dispatch(listMyOrders());
+				dispatch(listMyOrders());
+
 			} else {
 				setName(user.name);
 				setEmail(user.email);
@@ -115,7 +128,7 @@ export default function ProfileScreen({ history, location }) {
 					</Form>
 				)}
 			</Col>
-			{/* <Col md={9}>
+			<Col md={9}>
 				<h2>My Orders</h2>
 				{loadingOrders ? (
 					<Loader />
@@ -145,7 +158,7 @@ export default function ProfileScreen({ history, location }) {
 										) : (
 											<i
 												className='fas fa-times'
-												style={{ color: 'red' }}
+												style={iconColor}
 											></i>
 										)}
 									</td>
@@ -155,7 +168,7 @@ export default function ProfileScreen({ history, location }) {
 										) : (
 											<i
 												className='fas fa-times'
-												style={{ color: 'red' }}
+												style={iconColor}
 											></i>
 										)}
 									</td>
@@ -171,7 +184,7 @@ export default function ProfileScreen({ history, location }) {
 						</tbody>
 					</Table>
 				)}
-			</Col> */}
+			</Col>
 		</Row>
 	);
 }
