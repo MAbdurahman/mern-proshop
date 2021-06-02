@@ -97,6 +97,7 @@ export const getOrderDetails = id => async (dispatch, getState) => {
 				: error.message;
 		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
+
 		}
 		dispatch({
 			type: ORDER_DETAILS_FAIL,
@@ -140,12 +141,14 @@ export const payOrder = (orderId, paymentResult) => async (
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
-		if (message === 'Not authorized, token failed') {
+
+		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
 		}
 		dispatch({
 			type: ORDER_PAY_FAIL,
 			payload: message,
+			
 		});
 	}
 };
