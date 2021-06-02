@@ -25,7 +25,7 @@ import {
 	USER_UPDATE_SUCCESS,
 	USER_UPDATE_REQUEST,
 } from '../constants/userConstants';
-// import { ORDER_LIST_MY_RESET } from '../constants/orderConstants';
+import { ORDER_LIST_MY_RESET } from '../constants/orderConstants';
 
 export const login = (email, password) => async dispatch => {
 	try {
@@ -69,8 +69,8 @@ export const logout = () => dispatch => {
 	localStorage.removeItem('shippingAddress');
 	localStorage.removeItem('paymentMethod'); */
 	dispatch({ type: USER_LOGOUT });
-	// dispatch({ type: USER_DETAILS_RESET });
-	// dispatch({ type: ORDER_LIST_MY_RESET });
+	dispatch({ type: USER_DETAILS_RESET });
+	dispatch({ type: ORDER_LIST_MY_RESET });
 	// dispatch({ type: USER_LIST_RESET });
 	// document.location.href = '/login';
 	window.location.reload();
@@ -146,7 +146,7 @@ export const getUserDetails = id => async (dispatch, getState) => {
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
-		if (message === 'Not authorized, token failed') {
+		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
 		}
 		dispatch({
@@ -192,7 +192,7 @@ export const updateUserProfile = user => async (dispatch, getState) => {
 				? error.response.data.message
 				: error.message;
 				
-		if (message === 'Not authorized, token failed') {
+		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
 		}
 		dispatch({
