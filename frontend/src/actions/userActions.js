@@ -71,7 +71,7 @@ export const logout = () => dispatch => {
 	dispatch({ type: USER_LOGOUT });
 	dispatch({ type: USER_DETAILS_RESET });
 	dispatch({ type: ORDER_LIST_MY_RESET });
-	// dispatch({ type: USER_LIST_RESET });
+	dispatch({ type: USER_LIST_RESET });
 	// document.location.href = '/login';
 	window.location.reload();
 
@@ -265,7 +265,7 @@ export const deleteUser = id => async (dispatch, getState) => {
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
-		if (message === 'Not authorized, token failed') {
+		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
 		}
 		dispatch({
@@ -304,7 +304,7 @@ export const updateUser = user => async (dispatch, getState) => {
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
-		if (message === 'Not authorized, token failed') {
+		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
 		}
 		dispatch({
