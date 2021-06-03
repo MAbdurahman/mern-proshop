@@ -197,6 +197,7 @@ a.footer-link:hover {
    margin-right: -1px;
 }
 
+
 @media (max-width: 900px) {
    .carousel-caption h2 {
       font-size: 2.5vw;
