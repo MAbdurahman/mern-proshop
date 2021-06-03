@@ -35,9 +35,14 @@ export default function Header() {
 							{userInfo ? (
 								<NavDropdown title={userInfo.name} id='username'>
 									<LinkContainer to='/profile'>
-										<NavDropdown.Item>Profile</NavDropdown.Item>
+										<NavDropdown.Item className='dropdown-profile-dark'>
+											Profile
+										</NavDropdown.Item>
 									</LinkContainer>
-									<NavDropdown.Item className='dropdown-logout-red' onClick={logoutHandler}>
+									<NavDropdown.Item
+										className='dropdown-logout-red'
+										onClick={logoutHandler}
+									>
 										Logout
 									</NavDropdown.Item>
 								</NavDropdown>
@@ -51,13 +56,19 @@ export default function Header() {
 							{userInfo && userInfo.isAdmin && (
 								<NavDropdown title='Admin' id='adminmenu'>
 									<LinkContainer to='/admin/userlist'>
-										<NavDropdown.Item>Users</NavDropdown.Item>
+										<NavDropdown.Item className='dropdown-profile-dark'>
+											Users
+										</NavDropdown.Item>
 									</LinkContainer>
 									<LinkContainer to='/admin/productlist'>
-										<NavDropdown.Item>Products</NavDropdown.Item>
+										<NavDropdown.Item className='dropdown-profile-dark'>
+											Products
+										</NavDropdown.Item>
 									</LinkContainer>
 									<LinkContainer to='/admin/orderlist'>
-										<NavDropdown.Item>Orders</NavDropdown.Item>
+										<NavDropdown.Item className='dropdown-profile-dark'>
+											Orders
+										</NavDropdown.Item>
 									</LinkContainer>
 								</NavDropdown>
 							)}

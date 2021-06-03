@@ -76,7 +76,6 @@ const getUserProfile = asyncHandler(async (req, res) => {
 	}
 });
 
-
 /*======================================================
       Update User Profile => (PUT)/api/users/profile
 =========================================================*/
@@ -99,12 +98,18 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 			isAdmin: updatedUser.isAdmin,
 			token: generateToken(updatedUser._id),
 		});
-
 	} else {
 		res.status(404);
 		throw new Error('User Not Found!');
-
 	}
 });
 
-export { authUser, registerUser, getUserProfile, updateUserProfile };
+/*======================================================
+      (admin)Get All Users  => /api/users
+=========================================================*/
+const getUsers = asyncHandler(async (req, res) => {
+	const users = await User.find({});
+	res.json(users);
+});
+
+export { authUser, registerUser, getUserProfile, updateUserProfile, getUsers };
