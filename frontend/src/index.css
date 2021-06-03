@@ -113,10 +113,10 @@ a.dropdown-logout-red:hover {
    background-color: rgb(155, 20, 20);
    font-weight: 600;
 }
-a.dropdown-profile-dark:hover,
-a.dropdown-profile-dark.active {
+a.dropdown-profile-dark:hover {
    color:#eeeeee;
    background-color: black;
+   font-weight: 600;
 }
 a.footer-link {
    letter-spacing: 2px;

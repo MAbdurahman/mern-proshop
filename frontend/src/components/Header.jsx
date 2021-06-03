@@ -13,7 +13,6 @@ export default function Header() {
 	const { userInfo } = userLogin;
 
 	//**************** functions ****************//
-
 	const logoutHandler = () => {
 		dispatch(logout());
 	};
