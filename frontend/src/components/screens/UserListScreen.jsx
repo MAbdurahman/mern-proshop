@@ -4,7 +4,7 @@ import { Table, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './../Loader';
 import Message from './../Message';
-import { listUsers } from './../../actions/userActions';
+import { listUsers, deleteUser } from './../../actions/userActions';
 
 export default function UserListScreen({ history }) {
 	//**************** variables ****************//
@@ -16,15 +16,18 @@ export default function UserListScreen({ history }) {
 	const userLogin = useSelector(state => state.userLogin);
 	const { userInfo } = userLogin;
 
+	const userDelete = useSelector(state => state.userDelete);
+	const { success: successDelete } = userDelete;
+
 	const redColor = {
 		color: '#9B1414',
 	};
-   const redColorBg = {
-      backgroundColor: '#9B1414'
-   }
-   const greenColor = {
-      color: '#107229'
-   }
+	const redColorBg = {
+		backgroundColor: '#9B1414',
+	};
+	const greenColor = {
+		color: '#107229',
+	};
 	//**************** functions ****************//
 	useEffect(() => {
 		if (userInfo && userInfo.isAdmin) {
@@ -32,12 +35,12 @@ export default function UserListScreen({ history }) {
 		} else {
 			history.push('/login');
 		}
-	}, [dispatch, history, userInfo]);
+	}, [dispatch, history, userInfo, successDelete]);
 
 	const deleteHandler = id => {
-		if (window.confirm('Are you sure')) {
-			// dispatch(deleteUser(id));
-			console.log('user deleted!');
+		if (window.confirm('Are you sure?')) {
+			dispatch(deleteUser(id));
+	
 		}
 	};
 	return (
@@ -73,10 +76,7 @@ export default function UserListScreen({ history }) {
 											style={greenColor}
 										></i>
 									) : (
-										<i
-											className='fas fa-times'
-											style={redColor}
-										></i>
+										<i className='fas fa-times' style={redColor}></i>
 									)}
 								</td>
 								<td>

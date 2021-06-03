@@ -260,11 +260,13 @@ export const deleteUser = id => async (dispatch, getState) => {
 		await axios.delete(`/api/users/${id}`, config);
 
 		dispatch({ type: USER_DELETE_SUCCESS });
+
 	} catch (error) {
 		const message =
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
+				
 		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
 		}
