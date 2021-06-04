@@ -127,6 +127,9 @@ a.footer-link:hover {
    color:#a1a1a1;
    text-decoration: none;
 }
+container.product-edit-container {
+   margin-top: .5em;
+}
 
 
 /**************** CheckoutSteps CSS ****************/

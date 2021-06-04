@@ -16,6 +16,7 @@ import OrderScreen from './components/screens/OrderScreen';
 import UserListScreen from './components/screens/UserListScreen';
 import UserEditScreen from './components/screens/UserEditScreen';
 import ProductListScreen from './components/screens/ProductListScreen';
+import ProductEditScreen from './components/screens/ProductEditScreen';
 
 export default function App() {
 	return (
@@ -38,6 +39,10 @@ export default function App() {
 						path='/admin/productlist'
 						component={ProductListScreen}
 						exact
+					/>
+					<Route
+						path='/admin/product/:id/edit'
+						component={ProductEditScreen}
 					/>
 					<Route path='/' component={HomeScreen} exact />
 				</Container>
