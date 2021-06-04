@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -90,7 +91,11 @@ export default function ProductListScreen({ history, match }) {
 						<tbody>
 							{products.map(product => (
 								<tr key={product._id}>
-									<td>{product._id}</td>
+									<td>
+                              <Link to={`/product/${product._id}`}>
+                                 {product._id}
+                              </Link>
+                           </td>
 									<td>{product.name}</td>
 									<td>${product.price}</td>
 									<td>{product.category}</td>
