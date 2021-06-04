@@ -5,7 +5,12 @@ import { Table, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './../Loader';
 import Message from './../Message';
-import { listProducts, deleteProduct } from './../../actions/productActions';
+import {
+	listProducts,
+	createProduct,
+	deleteProduct,
+} from './../../actions/productActions';
+import { PRODUCT_CREATE_RESET } from './../../constants/productConstants';
 
 export default function ProductListScreen({ history, match }) {
 	//**************** variables ****************//
@@ -19,6 +24,14 @@ export default function ProductListScreen({ history, match }) {
 	const userLogin = useSelector(state => state.userLogin);
 	const { userInfo } = userLogin;
 
+	const productCreate = useSelector(state => state.productCreate);
+	const {
+		loading: loadingCreate,
+		error: errorCreate,
+		success: successCreate,
+		product: createdProduct,
+	} = productCreate;
+
 	const productDelete = useSelector(state => state.productDelete);
 	const {
 		loading: loadingDelete,
@@ -27,24 +40,26 @@ export default function ProductListScreen({ history, match }) {
 	} = productDelete;
 	//**************** functions ****************//
 	useEffect(() => {
-		if (userInfo && userInfo.isAdmin) {
-			dispatch(listProducts());
-		} else {
-			history.push('/login');
-		}
-		// dispatch({ type: PRODUCT_CREATE_RESET });
-
-		// if (!userInfo || !userInfo.isAdmin) {
-		// 	history.push('/login');
-
-		// }
-
-		// if (successCreate) {
-		// 	history.push(`/admin/product/${createdProduct._id}/edit`);
+		// if (userInfo && userInfo.isAdmin) {
+		// 	dispatch(listProducts());
 		// } else {
-		// 	dispatch(listProducts('', pageNumber));
+		// 	history.push('/login');
 		// }
-	}, [dispatch, history, successDelete, userInfo]);
+		dispatch({ type: PRODUCT_CREATE_RESET });
+
+		if (!userInfo || !userInfo.isAdmin) {
+			history.push('/login');
+
+		}
+
+		if (successCreate) {
+			history.push(`/admin/product/${createdProduct._id}/edit`);
+
+		} else {
+			// dispatch(listProducts('', pageNumber));
+         dispatch(listProducts());
+		}
+	}, [dispatch, history, successDelete, createProduct, successCreate, userInfo]);
 
 	const deleteHandler = id => {
 		if (window.confirm('Are you sure?')) {
@@ -53,7 +68,7 @@ export default function ProductListScreen({ history, match }) {
 	};
 
 	const createProductHandler = () => {
-		// dispatch(createProduct());
+		dispatch(createProduct());
 	};
 	return (
 		<>
@@ -67,10 +82,10 @@ export default function ProductListScreen({ history, match }) {
 					</Button>
 				</Col>
 			</Row>
-			{loadingDelete && <Loader />} 
+			{loadingDelete && <Loader />}
 			{errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-			{/* {loadingCreate && <Loader />} */}
-			{/* {errorCreate && <Message variant='danger'>{errorCreate}</Message>} */} 
+			{loadingCreate && <Loader />}
+			{errorCreate && <Message variant='danger'>{errorCreate}</Message>}
 			{loading ? (
 				<Loader />
 			) : error ? (
@@ -92,10 +107,10 @@ export default function ProductListScreen({ history, match }) {
 							{products.map(product => (
 								<tr key={product._id}>
 									<td>
-                              <Link to={`/product/${product._id}`}>
-                                 {product._id}
-                              </Link>
-                           </td>
+										<Link to={`/product/${product._id}`}>
+											{product._id}
+										</Link>
+									</td>
 									<td>{product.name}</td>
 									<td>${product.price}</td>
 									<td>{product.category}</td>

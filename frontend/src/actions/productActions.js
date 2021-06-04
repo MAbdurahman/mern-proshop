@@ -137,6 +137,7 @@ export const createProduct = () => async (dispatch, getState) => {
 			type: PRODUCT_CREATE_SUCCESS,
 			payload: data,
 		});
+		
 	} catch (error) {
 		const message =
 			error.response && error.response.data.message
