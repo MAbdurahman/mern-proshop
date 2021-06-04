@@ -4,7 +4,7 @@ import { Table, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './../Loader';
 import Message from './../Message';
-import { listProducts } from './../../actions/productActions';
+import { listProducts, deleteProduct } from './../../actions/productActions';
 
 export default function ProductListScreen({ history, match }) {
 	//**************** variables ****************//
@@ -17,38 +17,43 @@ export default function ProductListScreen({ history, match }) {
 
 	const userLogin = useSelector(state => state.userLogin);
 	const { userInfo } = userLogin;
+
+	const productDelete = useSelector(state => state.productDelete);
+	const {
+		loading: loadingDelete,
+		error: errorDelete,
+		success: successDelete,
+	} = productDelete;
 	//**************** functions ****************//
-   useEffect(() => {
-      if (userInfo && userInfo.isAdmin) {
-         dispatch(listProducts());
+	useEffect(() => {
+		if (userInfo && userInfo.isAdmin) {
+			dispatch(listProducts());
+		} else {
+			history.push('/login');
+		}
+		// dispatch({ type: PRODUCT_CREATE_RESET });
 
-      } else {
-         history.push('/login');
+		// if (!userInfo || !userInfo.isAdmin) {
+		// 	history.push('/login');
 
-      }
-			// dispatch({ type: PRODUCT_CREATE_RESET });
+		// }
 
-			// if (!userInfo || !userInfo.isAdmin) {
-			// 	history.push('/login');
+		// if (successCreate) {
+		// 	history.push(`/admin/product/${createdProduct._id}/edit`);
+		// } else {
+		// 	dispatch(listProducts('', pageNumber));
+		// }
+	}, [dispatch, history, successDelete, userInfo]);
 
-			// }
+	const deleteHandler = id => {
+		if (window.confirm('Are you sure?')) {
+			dispatch(deleteProduct(id));
+		}
+	};
 
-			// if (successCreate) {
-			// 	history.push(`/admin/product/${createdProduct._id}/edit`);
-			// } else {
-			// 	dispatch(listProducts('', pageNumber));
-			// }
-		}, [dispatch, history, userInfo,]);
-
-		const deleteHandler = id => {
-			if (window.confirm('Are you sure')) {
-				// dispatch(deleteProduct(id));
-			}
-		};
-
-		const createProductHandler = () => {
-			// dispatch(createProduct());
-		};
+	const createProductHandler = () => {
+		// dispatch(createProduct());
+	};
 	return (
 		<>
 			<Row className='align-items-center'>
@@ -61,10 +66,10 @@ export default function ProductListScreen({ history, match }) {
 					</Button>
 				</Col>
 			</Row>
-			{/* {loadingDelete && <Loader />}
+			{loadingDelete && <Loader />} 
 			{errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-			{loadingCreate && <Loader />}
-			{errorCreate && <Message variant='danger'>{errorCreate}</Message>} */}
+			{/* {loadingCreate && <Loader />} */}
+			{/* {errorCreate && <Message variant='danger'>{errorCreate}</Message>} */} 
 			{loading ? (
 				<Loader />
 			) : error ? (
