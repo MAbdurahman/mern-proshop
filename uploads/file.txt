@@ -1,0 +1,1 @@
+This a simple text file to be added to git repo.
