@@ -36,38 +36,39 @@ export default function ProductEditScreen({ history, match }) {
 		error: errorUpdate,
 		success: successUpdate,
 	} = productUpdate;
+
 	//**************** functions ****************//
 	useEffect(() => {
-      if (!product.name || product._id !== productId) {
-         dispatch(listProductDetails(productId))
+      // if (!product.name || product._id !== productId) {
+      //    dispatch(listProductDetails(productId))
 
-      } else {
-         setName(product.name);
-         setPrice(product.price);
-         setImage(product.image)
-         setBrand(product.brand)
-         setCategory(product.category)
-         setDescription(product.description)
-         setCountInStock(product.countInStock)
+      // } else {
+      //    setName(product.name);
+      //    setPrice(product.price);
+      //    setImage(product.image)
+      //    setBrand(product.brand)
+      //    setCategory(product.category)
+      //    setDescription(product.description)
+      //    setCountInStock(product.countInStock)
 
-      }
-		// if (successUpdate) {
-		// 	dispatch({ type: PRODUCT_UPDATE_RESET });
-		// 	history.push('/admin/productlist');
-		// } else {
-		// 	if (!product.name || product._id !== productId) {
-		// 		dispatch(listProductDetails(productId));
-		// 	} else {
-		// 		setName(product.name);
-		// 		setPrice(product.price);
-		// 		setImage(product.image);
-		// 		setBrand(product.brand);
-		// 		setCategory(product.category);
-		// 		setCountInStock(product.countInStock);
-		// 		setDescription(product.description);
-		// 	}
-		// }
-	}, [dispatch, history, productId, product]);
+      // }
+		if (successUpdate) {
+			dispatch({ type: PRODUCT_UPDATE_RESET });
+			history.push('/admin/productlist');
+		} else {
+			if (!product.name || product._id !== productId) {
+				dispatch(listProductDetails(productId));
+			} else {
+				setName(product.name);
+				setPrice(product.price);
+				setImage(product.image);
+				setBrand(product.brand);
+				setCategory(product.category);
+				setCountInStock(product.countInStock);
+				setDescription(product.description);
+			}
+		}
+	}, [dispatch, history, productId, product, successUpdate]);
 
 	const uploadFileHandler = async e => {
 		// const file = e.target.files[0];
@@ -91,18 +92,18 @@ export default function ProductEditScreen({ history, match }) {
 
 	const submitHandler = e => {
 		e.preventDefault();
-		// dispatch(
-		// 	updateProduct({
-		// 		_id: productId,
-		// 		name,
-		// 		price,
-		// 		image,
-		// 		brand,
-		// 		category,
-		// 		description,
-		// 		countInStock,
-		// 	})
-		// );
+		dispatch(
+			updateProduct({
+				_id: productId,
+				name,
+				price,
+				image,
+				brand,
+				category,
+				description,
+				countInStock,
+			})
+		);
 	};
 	return (
 		<>
@@ -115,7 +116,7 @@ export default function ProductEditScreen({ history, match }) {
 			<FormContainer className='product-edit-container'>
 				<h2 className='text-center'>Edit Product</h2>
 				{loadingUpdate && <Loader />}
-				{/* {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>} */}
+				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 				{loading ? (
 					<Loader />
 				) : error ? (
