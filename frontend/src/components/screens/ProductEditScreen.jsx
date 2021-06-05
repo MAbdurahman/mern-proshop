@@ -39,19 +39,19 @@ export default function ProductEditScreen({ history, match }) {
 
 	//**************** functions ****************//
 	useEffect(() => {
-      // if (!product.name || product._id !== productId) {
-      //    dispatch(listProductDetails(productId))
+		// if (!product.name || product._id !== productId) {
+		//    dispatch(listProductDetails(productId))
 
-      // } else {
-      //    setName(product.name);
-      //    setPrice(product.price);
-      //    setImage(product.image)
-      //    setBrand(product.brand)
-      //    setCategory(product.category)
-      //    setDescription(product.description)
-      //    setCountInStock(product.countInStock)
+		// } else {
+		//    setName(product.name);
+		//    setPrice(product.price);
+		//    setImage(product.image)
+		//    setBrand(product.brand)
+		//    setCategory(product.category)
+		//    setDescription(product.description)
+		//    setCountInStock(product.countInStock)
 
-      // }
+		// }
 		if (successUpdate) {
 			dispatch({ type: PRODUCT_UPDATE_RESET });
 			history.push('/admin/productlist');
@@ -84,7 +84,6 @@ export default function ProductEditScreen({ history, match }) {
 			const { data } = await axios.post('/api/upload', formData, config);
 			setImage(data);
 			setUploading(false);
-			
 		} catch (error) {
 			console.error(error);
 			setUploading(false);
@@ -116,6 +115,7 @@ export default function ProductEditScreen({ history, match }) {
 			</Link>
 			<FormContainer className='product-edit-container'>
 				<h2 className='text-center'>Edit Product</h2>
+
 				{loadingUpdate && <Loader />}
 				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
 				{loading ? (
@@ -154,7 +154,6 @@ export default function ProductEditScreen({ history, match }) {
 							></Form.Control> */}
 							<Form.File
 								id='image-file'
-               
 								label='Choose File'
 								custom
 								onChange={uploadFileHandler}
