@@ -179,13 +179,15 @@ export const deliverOrder = order => async (dispatch, getState) => {
 			type: ORDER_DELIVER_SUCCESS,
 			payload: data,
 		});
+
 	} catch (error) {
 		const message =
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
-		if (message === 'Not authorized, token failed') {
+		if (message === 'Not Authorized, Token Failed') {
 			dispatch(logout());
+			
 		}
 		dispatch({
 			type: ORDER_DELIVER_FAIL,
