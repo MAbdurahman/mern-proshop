@@ -127,6 +127,32 @@ a.footer-link:hover {
    color:#a1a1a1;
    text-decoration: none;
 }
+/* option.dark {
+   background-color: #a1a1a1;
+   color: #343a40;
+}
+option.dark:focus,
+option.dark:active {
+   color: #eeeeee;
+   background-color: #343a40;
+} */
+select option {
+   margin: 40px;
+   background: rgba(0, 0, 0, 0.3);
+      /* background: rgba(250, 250, 250, 0.3); */
+   color: #fff;
+   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+select option[value]{
+   background-color: #343a40;
+}
+select option[value]:hover,
+select option[value]:active,
+select option[value]:focus {
+   background-color: grey;
+   color: #eeeeee;
+}
+
 container.product-edit-container {
    margin-top: .5em;
 }
