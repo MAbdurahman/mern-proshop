@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import Product from '../models/productModel.js';
+import Order from '../models/orderModel.js';
 
 /*======================================================
       Get All Products  => /api/products/
@@ -93,9 +94,6 @@ const updateProduct = asyncHandler(async (req, res) => {
 	}
 });
 
-// @desc    Create new review
-// @route   POST /api/products/:id/reviews
-// @access  Private
 /*========================================================================
    (protected)Create New Review  => (POST)/api/products/:id/reviews
 ===========================================================================*/
@@ -104,7 +102,25 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 	const product = await Product.findById(req.params.id);
 
+	//**************** bring in users orders ****************//
+	const orders = await Order.find({ user: req.user._id });
+
+	//***** an array of product ids that user has ordered *****//
+	const orderItems = [].concat.apply(
+		[],
+		orders.map(order => order.orderItems.map(item => item.product.toString()))
+	);
+
+
 	if (product) {
+		//***** check if product id matches user orderedItems *****//
+		const hasBought = orderItems.includes(product._id.toString());
+
+		if (!hasBought) {
+			res.status(400);
+			throw new Error('Only Can Review Products Bought!');
+		}
+
 		const alreadyReviewed = product.reviews.find(
 			r => r.user.toString() === req.user._id.toString()
 		);
@@ -112,7 +128,6 @@ const createProductReview = asyncHandler(async (req, res) => {
 		if (alreadyReviewed) {
 			res.status(400);
 			throw new Error('Product Already Reviewed!');
-
 		}
 
 		const review = {
@@ -136,7 +151,6 @@ const createProductReview = asyncHandler(async (req, res) => {
 	} else {
 		res.status(404);
 		throw new Error('Product Not Found!');
-
 	}
 });
 
@@ -156,5 +170,5 @@ export {
 	createProduct,
 	updateProduct,
 	createProductReview,
-	getTopProducts
+	getTopProducts,
 };
