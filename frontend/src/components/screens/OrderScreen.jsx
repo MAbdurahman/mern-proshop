@@ -59,7 +59,7 @@ export default function OrderScreen({ history, match }) {
 			document.body.appendChild(script);
 		};
 
-		if (!order || successPay || order._id !== orderId) {
+/* 		if (!order || successPay || order._id !== orderId) {
 			dispatch({ type: ORDER_PAY_RESET });
 			// dispatch({ type: ORDER_DELIVER_RESET });
 			dispatch(getOrderDetails(orderId));
@@ -71,11 +71,24 @@ export default function OrderScreen({ history, match }) {
 				setSdkReady(true);
 
 			}
+		} */
+		if (!order || successPay) {
+			dispatch({type: ORDER_PAY_RESET});
+			dispatch(getOrderDetails(orderId));
+
+		} else if (!order.isPaid) {
+			if (!window.paypal) {
+				addPayPalScript();
+
+			} else {
+				setSdkReady(true);
+			}
 		}
+
 	}, [dispatch, orderId, order, successPay]);
 
 	const successPaymentHandler = paymentResult => {
-		console.log(paymentResult);
+		// console.log(paymentResult);
 		dispatch(payOrder(orderId, paymentResult));
 	};
 

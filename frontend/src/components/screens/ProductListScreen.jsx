@@ -38,6 +38,16 @@ export default function ProductListScreen({ history, match }) {
 		error: errorDelete,
 		success: successDelete,
 	} = productDelete;
+
+		const redColor = {
+			color: '#9B1414',
+		};
+		const redColorBg = {
+			backgroundColor: '#9B1414',
+		};
+		const greenColor = {
+			color: '#107229',
+		};
 	//**************** functions ****************//
 	useEffect(() => {
 		// if (userInfo && userInfo.isAdmin) {
@@ -126,6 +136,7 @@ export default function ProductListScreen({ history, match }) {
 										<Button
 											variant='danger'
 											className='btn-sm'
+											style={redColorBg}
 											onClick={() => deleteHandler(product._id)}
 										>
 											<i className='fas fa-trash'></i>

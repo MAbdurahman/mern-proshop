@@ -46,7 +46,7 @@ export default function PlaceOrderScreen({ history }) {
 			dispatch({ type: ORDER_CREATE_RESET });
 		}
 		// eslint-disable-next-line
-	}, [history, success]);
+	}, [dispatch, history, success]);
 
 	const placeOrderHandler = () => {
 		dispatch(

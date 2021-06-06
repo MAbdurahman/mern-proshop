@@ -17,6 +17,10 @@ export default function OrderListScreen({ history }) {
 	const userLogin = useSelector(state => state.userLogin);
 	const { userInfo } = userLogin;
 
+	const redColor = {
+		color: '#9B1414',
+	};
+
 	//**************** functions ****************//
 	useEffect(() => {
 		if (userInfo && userInfo.isAdmin) {
@@ -49,27 +53,21 @@ export default function OrderListScreen({ history }) {
 						{orders.map(order => (
 							<tr key={order._id}>
 								<td>{order._id}</td>
-								<>{order.user && order.user.name}</>
+								<td>{order.user && order.user.name}</td>
 								<td>{order.createdAt.substring(0, 10)}</td>
 								<td>${order.totalPrice}</td>
 								<td>
 									{order.isPaid ? (
 										order.paidAt.substring(0, 10)
 									) : (
-										<i
-											className='fas fa-times'
-											style={{ color: 'red' }}
-										></i>
+										<i className='fas fa-times'></i>
 									)}
 								</td>
 								<td>
 									{order.isDelivered ? (
 										order.deliveredAt.substring(0, 10)
 									) : (
-										<i
-											className='fas fa-times'
-											style={{ color: 'red' }}
-										></i>
+										<i className='fas fa-times' style={redColor}></i>
 									)}
 								</td>
 								<td>
