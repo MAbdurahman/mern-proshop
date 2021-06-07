@@ -6,7 +6,16 @@ import Order from '../models/orderModel.js';
       Get All Products  => /api/products/
 =========================================================*/
 const getProducts = asyncHandler(async (req, res) => {
-	const products = await Product.find({});
+	const keyword = req.query.keyword
+		? {
+				name: {
+					$regex: req.query.keyword,
+					$options: 'i',
+				},
+		}
+		: {};
+
+	const products = await Product.find({...keyword});
 
 	res.json(products);
 });
@@ -111,7 +120,6 @@ const createProductReview = asyncHandler(async (req, res) => {
 		orders.map(order => order.orderItems.map(item => item.product.toString()))
 	);
 
-
 	if (product) {
 		//***** check if product id matches user orderedItems *****//
 		const hasBought = orderItems.includes(product._id.toString());
@@ -147,7 +155,6 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 		await product.save();
 		res.status(201).json({ message: 'Review Added' });
-
 	} else {
 		res.status(404);
 		throw new Error('Product Not Found!');

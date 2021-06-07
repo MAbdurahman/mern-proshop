@@ -39,15 +39,15 @@ export default function ProductListScreen({ history, match }) {
 		success: successDelete,
 	} = productDelete;
 
-		const redColor = {
-			color: '#9B1414',
-		};
+		// const redColor = {
+		// 	color: '#9B1414',
+		// };
 		const redColorBg = {
 			backgroundColor: '#9B1414',
 		};
-		const greenColor = {
-			color: '#107229',
-		};
+		// const greenColor = {
+		// 	color: '#107229',
+		// };
 	//**************** functions ****************//
 	useEffect(() => {
 		// if (userInfo && userInfo.isAdmin) {
@@ -69,7 +69,7 @@ export default function ProductListScreen({ history, match }) {
 			// dispatch(listProducts('', pageNumber));
          dispatch(listProducts());
 		}
-	}, [dispatch, history, successDelete, createProduct, successCreate, userInfo]);
+	}, [dispatch, history, successDelete, createdProduct, successCreate, userInfo]);
 
 	const deleteHandler = id => {
 		if (window.confirm('Are you sure?')) {

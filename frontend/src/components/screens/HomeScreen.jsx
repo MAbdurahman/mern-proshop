@@ -7,16 +7,17 @@ import Loader from '../Loader';
 import Message from '../Message';
 import { listProducts } from './../../actions/productActions';
 
-export default function HomeScreen() {
+export default function HomeScreen({ match }) {
 	//**************** variables ****************//
+	const keyword = match.params.keyword;
 	const dispatch = useDispatch();
 	const productList = useSelector(state => state.productList);
 	const { loading, error, products } = productList;
 
 	//**************** functions ****************//
 	useEffect(() => {
-		dispatch(listProducts());
-	}, [dispatch]);
+		dispatch(listProducts(keyword));
+	}, [dispatch, keyword]);
 
 	return (
 		<>

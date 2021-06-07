@@ -203,7 +203,7 @@ export default function ProductScreen({ history, match }) {
 													onChange={e => setRating(e.target.value)}
 												>
 													<option className='dark' value=''>
-														Select...
+														Select one
 													</option>
 													<option value='1'>1 - POOR</option>
 													<option value='2'>2 - FAIR</option>

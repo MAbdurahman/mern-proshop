@@ -96,7 +96,7 @@ export default function OrderScreen({ history, match }) {
 				setSdkReady(true);
 			}
 		}
-	}, [dispatch, orderId, order, successPay, successDeliver]);
+	}, [dispatch, history, userInfo, orderId, order, successPay, successDeliver]);
 
 	const successPaymentHandler = paymentResult => {
 		dispatch(payOrder(orderId, paymentResult));
