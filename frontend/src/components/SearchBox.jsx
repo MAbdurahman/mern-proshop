@@ -21,8 +21,8 @@ export default function SearchBox({ history }) {
 				type='text'
 				name='q'
 				onChange={e => setKeyword(e.target.value)}
-				placeholder='Search Products...'
-				className='mr-sm-2 ml-sm-5'
+				placeholder='Products. . .'
+				className=' ml-sm-5'
 			></Form.Control>
 			<Button type='submit' variant='outline-info' className='p-2'>
 				Search

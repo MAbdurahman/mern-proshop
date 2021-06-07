@@ -2,7 +2,11 @@ import React from 'react';
 import { Pagination } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
+
 export default function Paginate({ pages, page, isAdmin = false, keyword = '' }) {
+   const colorBg = {
+      backgroundColor: '#33B5E5'
+   }
 	return (
 		pages > 1 && (
 			<Pagination className='d-flex justify-content-center mt-2'>
