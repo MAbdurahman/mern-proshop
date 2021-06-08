@@ -75,10 +75,7 @@ h2 {
    font-size: 1.4rem;
    padding: 0.5rem 0;
 }
-.product-carousel-h4 {
-   font-size: .8rem;
-   color: #eeeeee;
-}
+
 
 .rating span {
    margin: 0.1rem;
@@ -102,6 +99,10 @@ h2 {
 }
 .carousel-indicators li {
    visibility: hidden;
+}
+.product-carousel-h4 {
+   font-size: .8rem;
+   color: #eeeeee;
 }
 .carousel img {
    height: 300px;

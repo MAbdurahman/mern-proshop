@@ -30,7 +30,7 @@ export default function HomeScreen({ match }) {
 			{!keyword ? (
 				<ProductCarousel />
 			) : (
-				<Link to='/' className='btn btn-light'>
+				<Link to='/' className='btn btn-light dark-outline mt-3'>
 					Go Back
 				</Link>
 			)}
