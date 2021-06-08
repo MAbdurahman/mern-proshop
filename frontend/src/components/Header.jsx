@@ -19,7 +19,7 @@ export default function Header() {
 	};
 	return (
 		<header className='header'>
-			<Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+			<Navbar bg='dark' className='fixed-top' variant='dark' expand='lg' collapseOnSelect>
 				<Container>
 					<LinkContainer to='/'>
 						<Navbar.Brand>ProTech</Navbar.Brand>

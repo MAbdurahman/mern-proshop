@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from './../Loader';
 import Message from './../Message';
 import { listOrders } from './../../actions/orderActions';
+import MetaData from '../MetaData';
 // import { Link } from 'react-router-dom';
 
 export default function OrderListScreen({ history }) {
@@ -31,6 +32,7 @@ export default function OrderListScreen({ history }) {
 	}, [dispatch, history, userInfo]);
 	return (
 		<>
+		<MetaData title='Order List'/>
 			<h2 className='text-center'>Orders</h2>
 			{loading ? (
 				<Loader />

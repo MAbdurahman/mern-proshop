@@ -9,6 +9,7 @@ import Loader from '../Loader';
 import { getUserDetails, updateUserProfile } from '../../actions/userActions';
 import { USER_UPDATE_PROFILE_RESET } from './../../constants/userConstants';
 import { listMyOrders } from './../../actions/orderActions';
+import MetaData from '../MetaData';
 
 export default function ProfileScreen({ history, location }) {
 	//**************** variables ****************//
@@ -66,7 +67,9 @@ export default function ProfileScreen({ history, location }) {
 	};
 
 	return (
+	
 		<Row>
+			<MetaData title='Profile'/>
 			<Col md={3}>
 				<h2 className='text-center'>User Profile</h2>
 				{message && <Message variant='danger'>{message}</Message>}

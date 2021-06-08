@@ -7,6 +7,7 @@ import Loader from './../Loader';
 import Message from './../Message';
 import { getUserDetails, updateUser } from '../../actions/userActions';
 import { USER_UPDATE_RESET } from '../../constants/userConstants';
+import MetaData from '../MetaData';
 
 export default function UserEditScreen({ history, match }) {
 	//**************** variables ****************//
@@ -56,6 +57,7 @@ export default function UserEditScreen({ history, match }) {
 				Go Back
 			</Link>
 			<FormContainer>
+				<MetaData title='User Edit'/>
 				<h2 className='text-center'>Edit User</h2>
 				{loadingUpdate && <Loader />}
 				{errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}

@@ -6,6 +6,7 @@ import Message from '../Message';
 import Loader from '../Loader';
 import FormContainer from '../FormContainer';
 import { register } from '../../actions/userActions';
+import MetaData from '../MetaData';
 
 export default function RegisterScreen({ history, location }) {
 	//**************** variables ****************//
@@ -42,6 +43,7 @@ export default function RegisterScreen({ history, location }) {
 	};
 	return (
 		<FormContainer>
+			<MetaData title='Register'/>
 			<h1 className='text-center'>Sign Up</h1>
 			{message && <Message variant='danger'>{message}</Message>}
 			{error && <Message variant='danger'>{error}</Message>}

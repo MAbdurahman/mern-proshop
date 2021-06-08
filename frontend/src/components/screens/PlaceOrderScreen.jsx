@@ -7,6 +7,7 @@ import CheckoutSteps from './../CheckoutSteps';
 import { createOrder } from './../../actions/orderActions';
 import { ORDER_CREATE_RESET } from './../../constants/orderConstants';
 import { USER_DETAILS_RESET } from './../../constants/userConstants';
+import MetaData from '../MetaData';
 
 export default function PlaceOrderScreen({ history }) {
 	//**************** variables ****************//
@@ -63,6 +64,7 @@ export default function PlaceOrderScreen({ history }) {
 	};
 	return (
 		<>
+		<MetaData title='Place Order'/>
 			<CheckoutSteps step1 step2 step3 step4 />
 			<Row className='mt-4'>
 				<Col md={8}>

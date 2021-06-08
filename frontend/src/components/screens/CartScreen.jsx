@@ -12,6 +12,7 @@ import {
 } from 'react-bootstrap';
 import Message from '../Message';
 import { addToCart, removeFromCart } from '../../actions/cartActions';
+import MetaData from '../MetaData';
 
 export default function CartScreen({ history, location, match }) {
 	//**************** variables ****************//
@@ -39,6 +40,7 @@ export default function CartScreen({ history, location, match }) {
 
 	return (
 		<Row>
+			<MetaData title='Cart'/>
 			<Col md={8}>
 				<h1>Shopping Cart</h1>
 				{cartItems.length === 0 ? (

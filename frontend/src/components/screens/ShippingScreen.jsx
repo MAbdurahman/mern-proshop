@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from './../FormContainer';
 import CheckoutSteps from './../CheckoutSteps';
 import { saveShippingAddress } from './../../actions/cartActions';
+import MetaData from '../MetaData';
 
 export default function ShippingScreen({ history }) {
 	//**************** variables ****************//
@@ -25,6 +26,7 @@ export default function ShippingScreen({ history }) {
 	};
 	return (
 		<FormContainer>
+			<MetaData title='Shipping'/>
 			<CheckoutSteps step1 step2 />
 			<h2 className='text-center'>Shipping</h2>
 			<Form onSubmit={submitHandler}>

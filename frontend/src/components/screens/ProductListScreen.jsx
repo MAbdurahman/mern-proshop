@@ -12,6 +12,7 @@ import {
 	deleteProduct,
 } from './../../actions/productActions';
 import { PRODUCT_CREATE_RESET } from './../../constants/productConstants';
+import MetaData from '../MetaData';
 
 export default function ProductListScreen({ history, match }) {
 	//**************** variables ****************//
@@ -83,6 +84,7 @@ export default function ProductListScreen({ history, match }) {
 	};
 	return (
 		<>
+		<MetaData title='Product List'/>
 			<Row className='align-items-center'>
 				<Col>
 					<h2>Products</h2>

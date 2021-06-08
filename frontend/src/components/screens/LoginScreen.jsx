@@ -6,6 +6,7 @@ import Message from '../Message';
 import Loader from '../Loader';
 import FormContainer from '../FormContainer';
 import { login } from '../../actions/userActions';
+import MetaData from '../MetaData';
 
 export default function LoginScreen({ history, location }) {
 	//**************** variables ****************//
@@ -31,6 +32,7 @@ export default function LoginScreen({ history, location }) {
 	};
 	return (
 		<FormContainer>
+			<MetaData title='Login'/>
 			<h1 className='text-center'>Sign In</h1>
 			{error && <Message variant='danger'>{error}</Message>}
 			{loading && <Loader />}

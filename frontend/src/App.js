@@ -23,7 +23,7 @@ export default function App() {
 	return (
 		<Router>
 			<Header />
-			<main className='py-3'>
+			<main className='py-3 main--div'>
 				<Container>
 					<Route path='/order/:id' component={OrderScreen} />
 					<Route path='/shipping' component={ShippingScreen} />

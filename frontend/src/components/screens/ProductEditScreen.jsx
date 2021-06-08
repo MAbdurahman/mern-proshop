@@ -11,6 +11,7 @@ import {
 	updateProduct,
 } from './../../actions/productActions';
 import { PRODUCT_UPDATE_RESET } from './../../constants/productConstants';
+import MetaData from '../MetaData';
 
 export default function ProductEditScreen({ history, match }) {
 	//**************** variables ****************//
@@ -107,6 +108,7 @@ export default function ProductEditScreen({ history, match }) {
 	};
 	return (
 		<>
+		<MetaData title='Product Edit'/>
 			<Link
 				to='/admin/productlist'
 				className='btn btn-light dark-outline my-3'

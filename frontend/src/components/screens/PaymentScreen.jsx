@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from './../FormContainer';
 import CheckoutSteps from './../CheckoutSteps';
 import { savePaymentMethod } from './../../actions/cartActions';
+import MetaData from '../MetaData';
 
 export default function PaymentScreen({ history }) {
 	//**************** variables ****************//
@@ -26,6 +27,7 @@ export default function PaymentScreen({ history }) {
 	};
 	return (
 		<FormContainer>
+			<MetaData title='Payment'/>
 			<CheckoutSteps step1 step2 step3 />
 			<h2 className='text-center'>Payment Method</h2>
 			<Form onSubmit={submitHandler}>

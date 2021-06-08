@@ -21,7 +21,6 @@ export default function Product({ product }) {
             <Card.Text as='h4' className='product_price'>
             ${product.price}
             </Card.Text>
-
 			</Card.Body>
 		</Card>
 	);

@@ -5,6 +5,7 @@ import { Col, Row } from 'react-bootstrap';
 import Product from '../Product';
 import Loader from '../Loader';
 import Message from '../Message';
+import MetaData from './../MetaData';
 import Paginate from './../Paginate';
 import ProductCarousel from './../ProductCarousel';
 import { listProducts } from './../../actions/productActions';
@@ -25,6 +26,7 @@ export default function HomeScreen({ match }) {
 
 	return (
 		<>
+		<MetaData title='Home'/>
 			{!keyword ? (
 				<ProductCarousel />
 			) : (

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from './../Loader';
 import Message from './../Message';
 import { listUsers, deleteUser } from './../../actions/userActions';
+import MetaData from '../MetaData';
 
 export default function UserListScreen({ history }) {
 	//**************** variables ****************//
@@ -45,6 +46,7 @@ export default function UserListScreen({ history }) {
 	};
 	return (
 		<>
+		<MetaData title='User List'/>
 			<h2 className='text-center'>Users</h2>
 			{loading ? (
 				<Loader />
