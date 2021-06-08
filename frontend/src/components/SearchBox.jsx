@@ -24,7 +24,7 @@ export default function SearchBox({ history }) {
 				placeholder='Products. . .'
 				className=' ml-sm-5'
 			></Form.Control>
-			<Button type='submit' variant='outline-info' className='p-2'>
+			<Button type='submit' variant='outline-info' className='p-2 searchbox'>
 				Search
 			</Button>
 		</Form>

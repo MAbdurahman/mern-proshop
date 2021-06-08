@@ -70,6 +70,10 @@ h2 {
    font-size: 1.4rem;
    padding: 0.5rem 0;
 }
+.product-carousel-h4 {
+   font-size: .8rem;
+   color: #eeeeee;
+}
 
 .rating span {
    margin: 0.1rem;
@@ -84,20 +88,27 @@ h2 {
 
 .carousel-caption {
    position: absolute;
-   top: 0;
+   /* top: 0; */
+   bottom: 0;
 }
 
 .carousel-caption h2 {
    color: #fff;
 }
-
+.carousel-indicators li {
+   visibility: hidden;
+}
 .carousel img {
    height: 300px;
    padding: 30px;
    margin: 40px;
-   border-radius: 50%;
+   border-radius: 3px;
    margin-left: auto;
    margin-right: auto;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
 }
 
 .carousel a {
@@ -152,7 +163,23 @@ select option[value]:focus {
    background-color: grey;
    color: #eeeeee;
 }
-
+.searchbox {
+   letter-spacing: 2px;
+   border: 3px solid #33B5E5;
+}
+/**************** Paginate CSS ****************/
+.page-item.active .page-link {
+   background-color: transparent !important;
+   color:black !important;
+   border: 2px solid #33B5E5 !important;
+}
+.page-item .page-link:hover {
+   background-color: #33B5E5;
+   opacity: 5;
+   color: #eeeeee;
+   border: 2px solid #33B5E5 !important;
+   overflow: hidden;
+}
 container.product-edit-container {
    margin-top: .5em;
 }
