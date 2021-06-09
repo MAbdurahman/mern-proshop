@@ -7,6 +7,7 @@
    -o-user-select: none;
    user-select: none;
 }
+
 *::-moz-focus-inner {
    border: 0;
 }
@@ -15,6 +16,7 @@
    outline: none;
 }
 
+
 .product_price {
    padding: .33em 0;
 }
@@ -22,39 +24,54 @@
 .rating span {
    margin: 0.1em;
 }
+
 .dark-outline {
    border: 2px solid black;
 }
+
 .dark-outline:hover {
    background-color: black;
    color: white;
    border: 2px solid black;
 }
+
 .dark-btn {
    border: 2px solid black;
 }
+
 .dark-btn:hover {
    background-color: white;
    color: black;
    border: 2px solid black;
 }
+
 .btn-msg {
    margin-left: .5em;
 }
+
 .btn-msg:hover {
    text-decoration: none;
    color: green;
 }
+
 .btn-form {
    font-size: 1.2rem;
 }
-.grey-bg {
+
+.footer-grey-bg {
+position: relative;
+bottom: 0;
    background-color: rgb(233, 231, 231);
 }
 
+.wrapper {
+   min-height: 100vh;
+
+}
 
 main {
-   min-height: 80vh;
+   min-height: 100vh;
+
 }
 
 main.main--div {
@@ -97,13 +114,16 @@ h2 {
 .carousel-caption h2 {
    color: #fff;
 }
+
 .carousel-indicators li {
    visibility: hidden;
 }
+
 .product-carousel-h4 {
    font-size: .8rem;
    color: #eeeeee;
 }
+
 .carousel img {
    height: 300px;
    padding: 30px;
@@ -126,30 +146,36 @@ a.dropdown-logout-red {
    color: #eeeeee;
    font-weight: 600;
 }
+
 a.dropdown-logout-red:hover {
    color: #fff;
    background-color: rgb(155, 20, 20);
    font-weight: 600;
 }
+
 a.dropdown-profile-dark {
    color: #eeeeee;
 }
+
 a.dropdown-profile-dark:hover {
-   color:#eeeeee;
+   color: #eeeeee;
    /* background-color: black; */
    background-color: #33B5E5;
    font-weight: 600;
 }
+
 .dropdown-item.active,
 .dropdown-item:active {
    background-color: #33B5E5;
 }
+
 .dropdown-menu {
-   color:#eeeeee;
+   color: #eeeeee;
 }
+
 .dropdown-menu.show {
    background-color: #343a40;
-   
+
 }
 
 a.footer-link {
@@ -157,10 +183,12 @@ a.footer-link {
    display: block;
    text-decoration: none;
 }
+
 a.footer-link:hover {
-   color:#a1a1a1;
+   color: #a1a1a1;
    text-decoration: none;
 }
+
 /* option.dark {
    background-color: #a1a1a1;
    color: #343a40;
@@ -173,29 +201,34 @@ option.dark:active {
 select option {
    margin: 40px;
    background: rgba(0, 0, 0, 0.3);
-      /* background: rgba(250, 250, 250, 0.3); */
-   color: #fff;
+   /* background: rgba(250, 250, 250, 0.3); */
+   color: #eeeeee;
    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
-select option[value]{
+
+select option[value] {
    background-color: #343a40;
 }
+
 select option[value]:hover,
 select option[value]:active,
 select option[value]:focus {
    background-color: grey;
    color: #eeeeee;
 }
+
 .searchbox {
    letter-spacing: 2px;
    border: 3px solid #33B5E5;
 }
+
 /**************** Paginate CSS ****************/
 .page-item.active .page-link {
    background-color: transparent !important;
-   color:black !important;
+   color: black !important;
    border: 2px solid #33B5E5 !important;
 }
+
 .page-item .page-link:hover {
    background-color: #33B5E5;
    opacity: 5;
@@ -204,6 +237,7 @@ select option[value]:focus {
    /* border: 2px solid #33B5E5 !important; */
    overflow: hidden;
 }
+
 container.product-edit-container {
    margin-top: .5em;
 }
@@ -243,7 +277,7 @@ container.product-edit-container {
 
 .active-step {
    background: #343a40;
-   color: #fff;
+   color: #eeeeee;
 }
 
 .triangle-active {
@@ -282,9 +316,21 @@ container.product-edit-container {
    margin-right: -1px;
 }
 
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+
+   .carousel-control-prev-icon,
+   .carousel-control-next-icon {
+      visibility: hidden;
+   
+   }
+
+}
 
 @media (max-width: 900px) {
-   .carousel-caption h2 {
-      font-size: 2.5vw;
+   
+   .carousel-caption h4 {
+      /* font-size: 2.5vw; */
+      font-size: .7rem;
    }
 }

@@ -27,7 +27,7 @@ export default function UserListScreen({ history }) {
 		backgroundColor: '#9B1414',
 	};
 	const greenColor = {
-		color: '#107229',
+		color: '#0099cc',
 	};
 	//**************** functions ****************//
 	useEffect(() => {
