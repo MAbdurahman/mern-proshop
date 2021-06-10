@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap';
 import SearchBox from './SearchBox';
 import { logout } from '../actions/userActions';
 
@@ -19,18 +19,29 @@ export default function Header() {
 	};
 	return (
 		<header className='header'>
-			<Navbar bg='dark' className='fixed-top' variant='dark' expand='lg' collapseOnSelect>
+			<Navbar
+				bg='dark'
+				/* className='fixed-top' */
+				fixed='top'
+				variant='dark'
+				expand='lg'
+				collapseOnSelect
+			>
 				<Container>
 					<LinkContainer to='/'>
-						<Navbar.Brand>ProTech</Navbar.Brand>
+						<Navbar.Brand>
+							<Image src='/images/logo.png' width='40px'  height='40px' />{''} ProTech
+						</Navbar.Brand>
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
-						<Route
-							render={({ history }) => <SearchBox history={history} />}
-						/>
 						<Nav className='ml-auto'>
-							<LinkContainer to='/cart'>
+							<Route
+								render={({ history }) => (
+									<SearchBox history={history} />
+								)}
+							/>{' '}
+							<LinkContainer to='/cart' id='cart'>
 								<Nav.Link>
 									<i className='fas fa-shopping-cart'></i>&nbsp;Cart
 								</Nav.Link>

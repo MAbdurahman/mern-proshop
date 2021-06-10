@@ -88,13 +88,14 @@ export default function CartScreen({ history, location, match }) {
 									</Col>
 									<Col md={2}>
 										<Button
+											className='cart-delete-button-main btn-block'
 											type='button'
-											variant='light'
+											
 											onClick={() =>
 												removeFromCartHandler(item.product)
 											}
 										>
-											<i className='fas fa-trash'></i>
+											Delete
 										</Button>
 									</Col>
 								</Row>
