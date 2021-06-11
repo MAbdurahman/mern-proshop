@@ -223,37 +223,31 @@ select option[value]:focus {
 }
 
 /**************** Paginate CSS ****************/
-/* .page-item .page-link {
-   background-color: transparent !important;
-   color: black !important;
-   border: 2px solid #33B5E5 !important;
-} */
-.page-item .page-link {
-   background-color: transparent !important;
-   color: #33B5E5 !important;
-   border: 2px solid #33B5E5 !important;
-}
+.pagination {
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
 
-.page-item:hover,
-.page-item.active,
-.page-item .page-link:active {
-   background-color: #33B5E5;
-   opacity: 5;
+}
+li.page-item.active .page-link {
+   background-color: #33B5E5 !important;
    color: #eeeeee !important;
-   border-top: none;
-   border-right: none;
-   border-left: none;
-   border-bottom: 2px solid #33B5E5 !important;
-   /* border: 2px solid #33B5E5 !important; */
-   overflow: hidden;
+}
+li.page-item .page-link {
+   background-color: #343a40 !important;
+   color: #eeeeee !important;
+   transition: all .5s;
+   -webkit-transition: all .5s;
+   -moz-transition: all .5s;
+   -ms-transition: all .5s;
+   -o-transition: all .5s;
+}
+li.page-item:hover:not(.active) .page-link {
+   color: #343a40;
+   background-color:#a1a1a1 !important;
 }
 
-/* .page-item.active .page-link {
-   background-color: #33B5E5;
-   color: #eeeeee;
-   border: 2px solid #33B5E5;
-} */
-
+/**************** main container CSS ****************/
 container.product-edit-container {
    margin-top: .5em;
 }

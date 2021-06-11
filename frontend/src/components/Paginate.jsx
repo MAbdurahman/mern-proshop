@@ -6,7 +6,7 @@ export default function Paginate({ pages, page, isAdmin = false, keyword = '' })
    
 	return (
 		pages > 1 && (
-			<Pagination className='d-flex justify-content-center mt-2'>
+			<Pagination className='d-flex justify-content-center mt-2 '>
 				{[...Array(pages).keys()].map(x => (
 					<LinkContainer
 						key={x + 1}
