@@ -232,6 +232,8 @@ select option[value]:focus {
 li.page-item.active .page-link {
    background-color: #33B5E5 !important;
    color: #eeeeee !important;
+   border: none;
+   border-bottom: 2px solid #33B5E5;
 }
 li.page-item .page-link {
    background-color: #343a40 !important;
