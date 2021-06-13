@@ -6,7 +6,6 @@ import Loader from './../Loader';
 import Message from './../Message';
 import { listOrders } from './../../actions/orderActions';
 import MetaData from '../MetaData';
-// import { Link } from 'react-router-dom';
 
 export default function OrderListScreen({ history }) {
 	//**************** variables ****************//

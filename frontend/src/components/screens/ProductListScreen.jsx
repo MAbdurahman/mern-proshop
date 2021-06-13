@@ -41,15 +41,10 @@ export default function ProductListScreen({ history, match }) {
 		success: successDelete,
 	} = productDelete;
 
-		// const redColor = {
-		// 	color: '#9B1414',
-		// };
 		const redColorBg = {
 			backgroundColor: '#9B1414',
 		};
-		// const greenColor = {
-		// 	color: '#107229',
-		// };
+
 	//**************** functions ****************//
 	useEffect(() => {
 		// if (userInfo && userInfo.isAdmin) {

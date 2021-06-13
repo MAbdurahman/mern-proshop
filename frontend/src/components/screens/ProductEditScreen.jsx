@@ -40,19 +40,7 @@ export default function ProductEditScreen({ history, match }) {
 
 	//**************** functions ****************//
 	useEffect(() => {
-		// if (!product.name || product._id !== productId) {
-		//    dispatch(listProductDetails(productId))
 
-		// } else {
-		//    setName(product.name);
-		//    setPrice(product.price);
-		//    setImage(product.image)
-		//    setBrand(product.brand)
-		//    setCategory(product.category)
-		//    setDescription(product.description)
-		//    setCountInStock(product.countInStock)
-
-		// }
 		if (successUpdate) {
 			dispatch({ type: PRODUCT_UPDATE_RESET });
 			history.push('/admin/productlist');
@@ -148,12 +136,7 @@ export default function ProductEditScreen({ history, match }) {
 
 						<Form.Group controlId='image'>
 							<Form.Label>Image</Form.Label>
-							{/* <Form.Control
-								type='text'
-								placeholder='Enter image url'
-								value={image}
-								onChange={e => setImage(e.target.value)}
-							></Form.Control> */}
+
 							<Form.File
 								id='image-file'
 								label='Choose File'
