@@ -425,8 +425,14 @@ container.product-edit-container {
 /*mobile portrait layout (479px or less) */
 @media only screen and (max-width: 479px) {
    .cart-delete-button-main,
-   .cart-proceed-btn {
+   .cart-proceed-btn,
+   .payment-btn{
       margin-top: 1em;
       font-size: .8rem;
    }
+   .triangle2-active,
+   .triangle2-incomplete {
+      visibility: hidden;
+   }
+   
 }
