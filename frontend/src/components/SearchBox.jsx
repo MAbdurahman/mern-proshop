@@ -14,6 +14,7 @@ export default function SearchBox({ history }) {
 			history.push('/');
 
 		}
+		
 	};
 	return (
 		<Form onSubmit={submitHandler} inline>
