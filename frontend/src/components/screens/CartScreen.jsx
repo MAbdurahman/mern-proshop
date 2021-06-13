@@ -121,7 +121,7 @@ export default function CartScreen({ history, location, match }) {
 						<ListGroup.Item>
 							<Button
 								type='button'
-								className='btn-block dark-btn'
+								className='btn-block dark-btn cart-proceed-btn'
 								disabled={cartItems.length === 0}
 								onClick={checkoutHandler}
 							>

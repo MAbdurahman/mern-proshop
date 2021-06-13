@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 /* import { Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'; */
 
-export default function CheckoutSteps({step1, step2, step3, step4}) {
+export default function CheckoutSteps({ step2, step3, step4}) {
 	return (
 		<div className='d-flex justify-content-center mb-3 checkout-progress'>
-			{step1 ? (
+{/* 			{step1 ? (
 				<Link to='/login' className='float-right'>
 					<div className='triangle2-active'></div>
 					<div className='step active-step'>Sign In</div>
@@ -18,7 +18,7 @@ export default function CheckoutSteps({step1, step2, step3, step4}) {
 					<div className='step incomplete'>Sign In</div>
 					<div className='triangle2-incomplete'></div>
 				</Link>
-			)}
+			)} */}
 			{step2 ? (
 				<Link to='/shipping' className='float-right'>
 					<div className='triangle2-active'></div>
