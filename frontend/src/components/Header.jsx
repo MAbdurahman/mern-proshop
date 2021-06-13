@@ -29,7 +29,7 @@ export default function Header() {
 			>
 				<Container>
 					<LinkContainer to='/'>
-						<Navbar.Brand>
+						<Navbar.Brand className='navbar-brand'>
 							<Image src='/images/logo.png' width='40px'  height='40px' />{''} ProTech
 						</Navbar.Brand>
 					</LinkContainer>

@@ -52,9 +52,6 @@ export default function OrderScreen({ history, match }) {
 		);
 	}
 	useEffect(() => {
-		// if (!order || order._id !== orderId) {
-		// 	dispatch(getOrderDetails(orderId));
-		// }
 
 		if (!userInfo) {
 			history.push('/login');
@@ -72,20 +69,7 @@ export default function OrderScreen({ history, match }) {
 			document.body.appendChild(script);
 		};
 
-		/* 		if (!order || successPay || order._id !== orderId) {
-			dispatch({ type: ORDER_PAY_RESET });
-			// dispatch({ type: ORDER_DELIVER_RESET });
-			dispatch(getOrderDetails(orderId));
-		} else if (!order.isPaid) {
-			if (!window.paypal) {
-				addPayPalScript();
-
-			} else {
-				setSdkReady(true);
-
-			}
-		} */
-		if (!order || successPay || successDeliver) {
+		if (!order || successPay || successDeliver || order._id !== orderId) {
 			dispatch({ type: ORDER_PAY_RESET });
 			dispatch({ type: ORDER_DELIVER_RESET });
 			dispatch(getOrderDetails(orderId));
