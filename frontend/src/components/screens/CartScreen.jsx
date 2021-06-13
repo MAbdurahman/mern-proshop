@@ -42,7 +42,7 @@ export default function CartScreen({ history, location, match }) {
 		<Row>
 			<MetaData title='Cart'/>
 			<Col md={8}>
-				<h1>Shopping Cart</h1>
+				<h2>Shopping Cart</h2>
 				{cartItems.length === 0 ? (
 					<Message>
 						Your cart is empty &nbsp;
@@ -108,11 +108,11 @@ export default function CartScreen({ history, location, match }) {
 				<Card>
 					<ListGroup variant='flush'>
 						<ListGroup.Item>
-							<h2>
+							<h3 className='form-heading'>
 								Subtotal (
 								{cartItems.reduce((acc, item) => acc + item.quantity, 0)})
 								items
-							</h2>
+							</h3>
 							$
 							{cartItems
 								.reduce((acc, item) => acc + item.quantity * item.price, 0)

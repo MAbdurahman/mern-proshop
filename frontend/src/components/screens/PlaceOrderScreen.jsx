@@ -81,13 +81,13 @@ export default function PlaceOrderScreen({ history }) {
 						</ListGroup.Item>
 
 						<ListGroup.Item>
-							<h2>Payment Method</h2>&nbsp;
+							<h3 className='placeorder-h3'>Payment Method</h3>&nbsp;
 							<strong>Method: </strong>
 							{cart.paymentMethod}
 						</ListGroup.Item>
 
 						<ListGroup.Item>
-							<h2>Order Items</h2>
+							<h3 className='placeorder-h3'>Order Items</h3>
 							{cart.cartItems.length === 0 ? (
 								<Message>Your cart is empty</Message>
 							) : (
@@ -95,7 +95,7 @@ export default function PlaceOrderScreen({ history }) {
 									{cart.cartItems.map((item, index) => (
 										<ListGroup.Item key={index}>
 											<Row>
-												<Col md={1}>
+												<Col md={2}>
 													<Image
 														src={item.image}
 														alt={item.name}
@@ -108,7 +108,7 @@ export default function PlaceOrderScreen({ history }) {
 														{item.name}
 													</Link>
 												</Col>
-												<Col md={4}>
+												<Col md={5} className='placeorder-price'>
 													{item.quantity} x ${item.price} = $
 													{(item.quantity * item.price).toFixed(2)}
 												</Col>
@@ -124,7 +124,7 @@ export default function PlaceOrderScreen({ history }) {
 					<Card>
 						<ListGroup variant='flush'>
 							<ListGroup.Item>
-								<h2>Order Summary</h2>
+								<h3 className='placeorder-h3'>Order Summary</h3>
 							</ListGroup.Item>
 							<ListGroup.Item>
 								<Row>

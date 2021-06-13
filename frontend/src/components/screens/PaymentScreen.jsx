@@ -28,8 +28,8 @@ export default function PaymentScreen({ history }) {
 	return (
 		<FormContainer>
 			<MetaData title='Payment'/>
-			<CheckoutSteps step1 step2 step3 />
-			<h2 className='text-center'>Payment Method</h2>
+			<CheckoutSteps step2 step3 />
+			<h3 className='text-center'>Payment Method</h3>
 			<Form onSubmit={submitHandler}>
 				<Form.Group>
 					<Form.Label as='legend'>Select Method</Form.Label>
@@ -57,7 +57,7 @@ export default function PaymentScreen({ history }) {
 				</Form.Group>
 
 				<Button
-					className='btn-block dark-btn'
+					className='btn-block dark-btn payment-btn'
 					type='submit'
 					variant='primary'
 				>

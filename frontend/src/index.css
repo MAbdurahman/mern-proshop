@@ -407,7 +407,26 @@ container.product-edit-container {
 
 @media only screen and (max-width: 768px) {
    .cart-delete-button-main,
-   .cart-proceed-btn {
+   .cart-proceed-btn,
+   .payment-btn {
       font-size: .55rem;
+   }
+   .form-heading {
+      font-size: .7rem;
+   }
+   .placeorder-h3 {
+      font-size: .8rem;
+   }
+   .placeorder-price {
+      font-size: .6rem;
+   }
+}
+
+/*mobile portrait layout (479px or less) */
+@media only screen and (max-width: 479px) {
+   .cart-delete-button-main,
+   .cart-proceed-btn {
+      margin-top: 1em;
+      font-size: .8rem;
    }
 }

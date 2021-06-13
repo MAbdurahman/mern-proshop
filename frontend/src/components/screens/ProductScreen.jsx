@@ -90,7 +90,7 @@ export default function ProductScreen({ history, match }) {
 						<Col md={3}>
 							<ListGroup variant='flush'>
 								<ListGroup.Item>
-									<h2>{product.name}</h2>
+									<h4>{product.name}</h4>
 								</ListGroup.Item>
 								<ListGroup.Item>
 									<Rating
